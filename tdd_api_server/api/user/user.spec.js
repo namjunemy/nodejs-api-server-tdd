@@ -3,10 +3,12 @@ const should = require('should');
 const app = require('../../app');
 const models = require('../../models');
 
-describe('GET /users는', (done) => {
+describe.only('GET /users는', (done) => {
   describe('성공시', () => {
+    const users = [{name: 'alice'}, {name: 'bek'}, {name: 'chris'}];
     before(() => models.sequelize.sync({force: true}));
-    it('유저 객체를 담은 배열로 응답한다.', () => {
+    before(() => models.User.bulkCreate(users));
+    it('유저 객체를 담은 배열로 응답한다.', (done) => {
       request(app)
           .get('/users')
           .end((err, res) => {
@@ -15,7 +17,7 @@ describe('GET /users는', (done) => {
           });
     });
 
-    it('최대 limit 갯수만큼 응답한다.', () => {
+    it('최대 limit 갯수만큼 응답한다.', (done) => {
       request(app)
           .get('/users?limit=2')
           .end((err, res) => {

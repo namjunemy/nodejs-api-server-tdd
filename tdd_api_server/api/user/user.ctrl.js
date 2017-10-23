@@ -1,4 +1,4 @@
-const models = require('../../models').User;
+const models = require('../../models');
 
 const index = function (req, res) {
   req.query.limit = req.query.limit || 10;
@@ -6,7 +6,10 @@ const index = function (req, res) {
   if (Number.isNaN(limit)) {
     return res.status(400).end();
   }
-  models.User.findAll({})
+  models.User
+      .findAll({
+        limit: limit
+      })
       .then(users => {
         res.json(users);
       });
