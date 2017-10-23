@@ -1,9 +1,11 @@
 const request = require('supertest');
 const should = require('should');
 const app = require('../../app');
+const models = require('../../models');
 
 describe('GET /users는', (done) => {
   describe('성공시', () => {
+    before(() => models.sequelize.sync({force: true}));
     it('유저 객체를 담은 배열로 응답한다.', () => {
       request(app)
           .get('/users')
