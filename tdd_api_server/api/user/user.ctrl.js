@@ -71,17 +71,23 @@ const update = function (req, res) {
   if (!name)
     return res.status(400).end();
 
-  const isConfilct = users.filter(user => user.name === name).length;
-  if (isConfilct)
-    return res.status(409).end();
+  models.User
+      .findOne({where: {id}})
+      .then(user => {
+        if (!user) return res.status(404).end();
 
-  const user = users.filter((user) => user.id === id)[0];
-  if (!user)
-    return res.status(404).end();
-
-  user.name = name;
-
-  res.json(user);
+        user.name = name;
+        user.save()
+            .then(() => {
+              res.json(user);
+            })
+            .catch(err => {
+              if (err.name === 'SequelizeUniqueConstraintError') {
+                return res.status(409).end();
+              }
+              return res.status(500).end();
+            })
+      });
 };
 
 module.exports = {index, show, destroy, create, update};

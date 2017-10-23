@@ -92,7 +92,7 @@ describe('DELETE /users/1은', () => {
   });
 });
 
-describe.only('POST /users는', () => {
+describe('POST /users는', () => {
   const users = [{name: 'alice'}, {name: 'bek'}, {name: 'chris'}];
   before(() => models.sequelize.sync({force: true}));
   before(() => models.User.bulkCreate(users));
@@ -139,7 +139,7 @@ describe('PUT /users/:id', () => {
   before(() => models.User.bulkCreate(users));
   describe('성공시', () => {
     it('변경된 name을 응답한다', (done) => {
-      const name = 'den';
+      const name = 'chally';
       request(app)
           .put('/users/3')
           .send({name})
