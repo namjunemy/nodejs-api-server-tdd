@@ -1,6 +1,8 @@
 ## NodeJS API SERVER
 
 > 인프런 '테스트 주도 개발(TDD)로 만드는 NodeJS API 서버' 강좌 학습 repo
+>
+> 학습내용 정리 : [https://github.com/namjunemy/TIL](https://github.com/namjunemy/TIL)
 
 ​    
 
@@ -13,7 +15,6 @@ Javascript로 백엔드 개발을 할 수 있도록 해주는 nodejs와 대표�
 * NodeJS를 이용하여 API 서버를 만든다.
 * 테스트 주고 개발 방법을 익힌다.
 
-  
 
 #### 배우는 것들
 
@@ -21,7 +22,6 @@ Javascript로 백엔드 개발을 할 수 있도록 해주는 nodejs와 대표�
 * Rest API 서버 개발
 * 테스트 주도 개발 방법
 
-  
 
 ### 강사
 
