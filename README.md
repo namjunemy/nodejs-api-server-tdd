@@ -23,6 +23,10 @@ Javascript로 백엔드 개발을 할 수 있도록 해주는 nodejs와 대표�
 * 테스트 주도 개발 방법
 
 
+### 학습 내용 상세 정리
+
+* https://github.com/namjunemy/TIL#nodejs
+
 ### 강사
 
 [김정환](http://blog.jeonghwan.net/) - 현 우아한형제들 개발자
